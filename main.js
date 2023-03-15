@@ -5,7 +5,8 @@ var dealerAceCount = 0;
 var yourAceCount = 0; 
 
 var hidden;
-var deck;
+var deck = [];
+
 
 var canHit = true;
 var canStay = true;
@@ -19,15 +20,17 @@ window.onload = function() {
 function buildDeck() {
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let types = ["C", "D", "H", "S"];
-    deck = [];
 
-    for (let i = 0; i < types.length; i++) {
-        for (let j = 0; j < values.length; j++) {
-            deck.push(values[j] + types[i]); 
-        }
+    for (let i = 0; i < 5; i++){ //creating 5 decks
+    values.forEach((value)=>{
+        types.forEach((type)=>{
+            deck.push(value + type); 
+        })
+    })
     }
-   
-}
+    return deck;
+    }
+
 
 function shuffleDeck() {
     for (let i = 0; i < deck.length; i++) {
