@@ -1,0 +1,66 @@
+
+html {
+    /* To make use of full height of page*/
+    min-height: 100%;
+    margin: 0;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+
+body {
+    font-family: monospace, Helvetica, sans-serif;
+    text-align: center;
+    color: whitesmoke;
+  
+        background-image: url('./casino.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+   
+}
+#dealer-cards img {
+    height: 220px;
+    width: 150px;
+    margin: 1px;
+}
+
+#your-cards img {
+    height: 220px;
+    width: 150x;
+    margin: 1px;
+}
+
+#hit {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#stay {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#submit {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+#results{
+    text-align: center;
+    font-size: 30px;
+    color: firebrick;
+    font-weight: 300;
+    font-family: monospace, Helvetica, sans-serif;
+}
+
