@@ -68,11 +68,9 @@ function startGame() {
     dealerCards();
 
     for (let i = 0; i < 2; i++) {
-       
         playerCards();
     }
 
-   
     $("#hit").on("click", hit);
     $("#stay").on("click", stay);
     $("#submit").on("click", refreshPage);
@@ -89,11 +87,7 @@ function hit() {
     if (reduceAce(yourSum, yourAceCount) > 21){ 
         canHit = false;
         canStay = false;
-        $("#hidden").attr("src","./cards/" + hidden + ".png");
-        $("#dealer-sum").html(dealerSum);
-         $("#your-sum").html(yourSum);
-        $("#results").text("Bust!");
-      
+      winner();
 }
 }
 
@@ -103,17 +97,7 @@ function calculate(){
     }
 }
 
-
-
-function stay() {
-    if (!canStay) {
-        return;
-    }
-    calculate();
-    dealerSum = reduceAce(dealerSum, dealerAceCount);
-    yourSum = reduceAce(yourSum, yourAceCount);
-
-    canHit = false;
+function winner(){
     $("#hidden").attr("src","./cards/" + hidden + ".png");
 
     $("#dealer-sum").html(dealerSum);
@@ -134,8 +118,22 @@ function stay() {
         }
         else if (yourSum < dealerSum) {
            return  "BUST!, you lose";
-        }
-    });
+        }})
+     
+}
+
+
+function stay() {
+    if (!canStay) {
+        return;
+    }
+    calculate();
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    yourSum = reduceAce(yourSum, yourAceCount);
+
+    canHit = false;
+    winner();
+    
 }
 
 function getValue(card) {
@@ -162,11 +160,12 @@ function checkAce(card) {
 }
 
 function reduceAce(playerSum, playerAceCount) {
-    while (playerSum > 21 && playerAceCount > 0) {
-        playerSum -= 10;
-        playerAceCount -= 1;
+
+  while(playerSum > 21 && playerAceCount > 0 ){
+      playerSum -= 10 
+      playerAceCount -= 1
     }
-    return playerSum;
+   return playerSum
 }
 
 
